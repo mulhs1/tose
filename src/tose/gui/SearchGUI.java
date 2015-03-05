@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
 import model.SearchResultMetadataDTO;
 import util.SearchHelper;
 import util.ToseConstants;
-import api.Api;
+import api.SearchApi;
 
 public class SearchGUI extends JFrame {
 
@@ -53,7 +53,7 @@ public class SearchGUI extends JFrame {
 		searchButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent event) {
-				fillResultTable(Api.mockSearch());
+				fillResultTable(SearchApi.mockSearch());
 			}
 		});
 

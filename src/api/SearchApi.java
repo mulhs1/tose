@@ -8,7 +8,7 @@ import java.util.List;
 import model.SearchResultMetadataDTO;
 import util.ToseConstants;
 
-public class Api {
+public class SearchApi {
 
 	public static List<SearchResultMetadataDTO> search(String searchParameter) {
 		// Connection is the only JDBC resource that we need
