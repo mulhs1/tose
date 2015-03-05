@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 
-public class SearchHelper {
+public final class SearchHelper {
 
 	private SearchHelper() {
 	}

@@ -16,14 +16,12 @@ import javax.swing.table.DefaultTableModel;
 
 import model.SearchResultMetadataDTO;
 import util.SearchHelper;
+import util.ToseConstants;
 import api.Api;
 
 public class SearchGUI extends JFrame {
 
 	private static final long serialVersionUID = 6089813469504709706L;
-	private static final String INPUT_PLS = "Bitte Suchbegriff eingeben";
-	private static final String[] COLUMN_NAMES = { "photoLink", "text", "likes", "authorLink",
-	"tags" };
 
 	private JButton searchButton;
 	private JTextField input;
@@ -34,17 +32,15 @@ public class SearchGUI extends JFrame {
 	}
 
 	private void initUI() {
-
-		// TODO Auslagern in Search-Button Klasse
 		searchButton = new JButton("Suchen");
-		input = new JTextField(INPUT_PLS);
+		input = new JTextField(ToseConstants.SEARCH_INPUT_PLACEHOLDER);
 
 		input.addFocusListener(new FocusListener() {
 
 			@Override
 			public void focusLost(FocusEvent e) {
 				JTextField f = (JTextField) e.getComponent();
-				f.setText(INPUT_PLS);
+				f.setText(ToseConstants.SEARCH_INPUT_PLACEHOLDER);
 			}
 
 			@Override
@@ -80,7 +76,7 @@ public class SearchGUI extends JFrame {
 
 	private void fillResultTable(List<SearchResultMetadataDTO> mockSearch) {
 		DefaultTableModel model = new DefaultTableModel();
-		model.setColumnIdentifiers(COLUMN_NAMES);
+		model.setColumnIdentifiers(ToseConstants.SEARCH_RESULT_COLUMN_NAMES);
 
 		resultsTable.setModel(model);
 
@@ -95,11 +91,7 @@ public class SearchGUI extends JFrame {
 			model.addRow(o);
 		}
 
-		
-		
-		
 		this.revalidate();
 		this.repaint();
-
 	}
 }

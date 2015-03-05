@@ -6,18 +6,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.SearchResultMetadataDTO;
+import util.ToseConstants;
 
 public class Api {
 
-	private void connect() {
-		String userName = "root";
-		String password = "";
-		String url = "jdbc:mysql://localhost:3306/library";
-
+	public static List<SearchResultMetadataDTO> search(String searchParameter) {
 		// Connection is the only JDBC resource that we need
 		// PreparedStatement and ResultSet are handled by jOOQ, internally
-		try (Connection conn = DriverManager.getConnection(url, userName,
-				password)) {
+		try (Connection conn = DriverManager.getConnection(ToseConstants.DB_URL, ToseConstants.DB_USER,
+				ToseConstants.DB_PASSWORD)) {
 
 			// DSLContext create = DSL.using(conn, SQLDialect.MYSQL);
 			// Result<Record> result = create.select().from(AUTHOR).fetch();
@@ -27,14 +24,11 @@ public class Api {
 		catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
-
-	public static List<SearchResultMetadataDTO> search(String searchParameter) {
+		
 		return null;
 	}
-	
+
 	public static List<SearchResultMetadataDTO> mockSearch() {
-		// TODO Schlagwortsuche im SelectQuery
 		List<SearchResultMetadataDTO> results = new ArrayList<SearchResultMetadataDTO>();
 		
 		List<String> tags = new ArrayList<String>();

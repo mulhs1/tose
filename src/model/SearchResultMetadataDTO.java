@@ -8,9 +8,8 @@ public class SearchResultMetadataDTO {
 	private int likes;
 	private String authorLink;
 	private List<String> tags;
-	
-	public SearchResultMetadataDTO() {
 
+	public SearchResultMetadataDTO() {
 	}
 
 	public SearchResultMetadataDTO(String photoLink, String text, int likes,
