@@ -1,0 +1,75 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="ctrl.modalClose()">
+        <i class="fa fa-times"></i>
+        <span class="sr-only">Close</span>
+    </button>
+
+    <h3 class="modal-title">
+        <span translate="DESIGNER_HEADING"></span>
+    </h3>
+</div>
+
+<div class="modal-body">
+    <div class="alert alert-info">
+        <div class="row">
+            <div class="col-xs-2">
+                <i class="fa fa-info fa-2x"></i>
+            </div>
+            <div class="col-xs-10">
+                <strong translate="DESIGNER_CREATE_INFO"></strong><br />
+                <span translate="DESIGNER_CREATE_INFO_DESCRIPTION"></span>
+            </div>
+        </div>
+    </div>
+
+    <form class="form-horizontal" name="ctrl.form" novalidate>
+        <div class="form-group" validation="ctrl.form.name">
+            <label  class="col-sm-2 control-label" translate="PIZZA_NAME"></label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="{{'PIZZA_NAME' | translate}}"
+                       name="name" ng-model="ctrl.pizza.name"
+                       required
+                       ng-pattern="/^([a-zA-Z]|\s)*$/"
+                       ng-minlength="3">
+                <div class="form-error-messages"
+                     ng-messages="ctrl.form.name.$error" ng-messages-multiple
+                     ng-if="ctrl.form.name.$touched">
+                    <div ng-message="required"><span translate="VALIDATION_REQUIRED"></span></div>
+                    <div ng-message="minlength"><span translate="VALIDATION_MINLENGTH"></span></div>
+                    <div ng-message="pattern"><span translate="VALIDATION_PATTERN"></span></div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group" validation="ctrl.form.weight">
+            <label  class="col-sm-2 control-label" translate="PIZZA_WEIGHT"></label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="{{'PIZZA_WEIGHT' | translate}}"
+                       name="weight" ng-model="ctrl.pizza.weight"  required>
+            </div>
+        </div>
+        <div class="form-group" validation="ctrl.form.price">
+            <label  class="col-sm-2 control-label" translate="PIZZA_PRICE"></label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="{{'PIZZA_PRICE' | translate}}"
+                       name="price" ng-model="ctrl.pizza.price"  required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> Remember me
+                    </label>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-material-green pull-right" translate="ACTION_SAVE"></button>
+    <button type="button" class="btn btn-default pull-right" ng-click="ctrl.modalClose()"
+            translate="ACTION_CANCEL"></button>
+</div>
