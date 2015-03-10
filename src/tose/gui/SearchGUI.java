@@ -14,10 +14,10 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
-import model.SearchResultMetadataDTO;
-import util.SearchHelper;
-import util.ToseConstants;
-import api.SearchApi;
+import tose.api.SearchApi;
+import tose.model.SearchResultMetadataDTO;
+import tose.util.SearchHelper;
+import tose.util.ToseConstants;
 
 public class SearchGUI extends JFrame {
 

@@ -1,4 +1,4 @@
-package util;
+package tose.util;
 
 public final class ToseConstants {
 
