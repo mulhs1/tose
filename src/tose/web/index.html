@@ -1,11 +1,56 @@
-<html>
-  <head>
-    <script src="angular.js"></script>
-   </head>
-  <body>
-    <div ng-app>
-    <input type="text" ng-model="data.message" />
-    <h1>{{ data.message }}</h1>
-    </div>
-  </body>
+<html lang="en" ng-app="flickrSearch">
+<head>
+	<meta charset="UTF-8">
+	<title>Flickr Search - Klasse 6o</title>
+	<meta name="description" content="Beschreibug einfügen">
+	<meta name="keywords" content="Keywords einfügen">
+	<!-- Verlinkung CSS -->
+	<link rel="stylesheet" href="css/main.css">
+	<script type="text/javascript" src="js/vendor/angular/angular.min.js"></script>
+	<script type="text/javascript" src="app/searchApp.js"></script>
+</head>
+
+<body ng-controller="stageOneCtrl">
+	<div id="container">
+		<header>
+
+				<h1>Bildsuche</h1>
+
+		</header>
+		<article>
+			<label for="your_search">Suche: <input type="text" name="your_search" size="60" value="" ng-model="searchText"></label>
+		</article>
+	</div>
+	<div id="container">
+		<h2>Search Results</h2>
+		<table>
+			<thead>
+				<tr>
+					<th><a href="" ng-click="predicate = 'text'; reverse=!reverse">Text</a></th>
+					<th><a href="" ng-click="predicate = 'fotograf'; reverse=!reverse">Fotograf</a></th>
+					<th><a href="" ng-click="predicate = 'schlagworte'; reverse=!reverse">Schlagworte</a></th>
+					<th><a href="" ng-click="predicate = 'link'; reverse=!reverse">Link</a></th>
+					<th><a href="" ng-click="predicate = 'likes'; reverse=!reverse">Likes</a></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="picture in dummy_pictures | filter:searchText:comparator=false | orderBy:predicate:reverse" ng-class="picture.fotograf">
+					<td>{{picture.text}}</td>
+					<td><a href="{{picture.fotograf_link}}">{{picture.fotograf}}</a></td>
+					<td>{{picture.schlagworte}}</td>
+					<td><a href="{{picture.link}}">Bild anzeigen</a></td>
+					<td>{{picture.likes}}</td>
+				</tr>
+			</tbody>
+
+		</table>
+	</div>
+	<div id="container">
+		<h2>Picture Preview</h2>
+		Mue m&uuml;esse de no chli z&auml;me pl&ouml;iderle... <br /><br />
+	</div>
+
+	<footer></footer>
+
+</div>
 </html>
