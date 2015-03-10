@@ -1,15 +1,16 @@
-package api;
+package tose.api;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.SearchResultMetadataDTO;
-import util.ToseConstants;
+import tose.model.SearchResultMetadataDTO;
+import tose.util.ToseConstants;
 
 public class SearchApi {
 
+	// TODO Nicht DTO zurückgeben, sondern ein JSON String
 	public static List<SearchResultMetadataDTO> search(String searchParameter) {
 		// Connection is the only JDBC resource that we need
 		// PreparedStatement and ResultSet are handled by jOOQ, internally
@@ -28,6 +29,7 @@ public class SearchApi {
 		return null;
 	}
 
+	// TODO Nicht DTO zurückgeben, sondern ein JSON String
 	public static List<SearchResultMetadataDTO> mockSearch() {
 		List<SearchResultMetadataDTO> results = new ArrayList<SearchResultMetadataDTO>();
 		
