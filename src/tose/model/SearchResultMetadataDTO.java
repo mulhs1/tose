@@ -1,4 +1,4 @@
-package model;
+package tose.model;
 
 import java.util.List;
 
