@@ -13,42 +13,58 @@
 </head>
 
 <body ng-controller="stageOneCtrl">
-	<div id="container">
+	<div class="container">
 		<header>
 		
 		<div class="page-header">
-		  <h1>Bildsuche</h1>
+		  <h1>ProFos</h1>
 		</div>
 
 
 		</header>
-		<article>
-			<label for="your_search">Suche: <input type="text" name="your_search" size="60" value="" ng-model="searchText"></label>
-		</article>
-	</div>
-	<div id="container">
-		<h2>Search Results</h2>
-		<table class="table">
-			<thead>
-				<tr>
-					<th><a href="" ng-click="predicate = 'text'; reverse=!reverse">Text</a></th>
-					<th><a href="" ng-click="predicate = 'fotograf'; reverse=!reverse">Fotograf</a></th>
-					<th><a href="" ng-click="predicate = 'schlagworte'; reverse=!reverse">Schlagworte</a></th>
-					<th><a href="" ng-click="predicate = 'link'; reverse=!reverse">Link</a></th>
-					<th><a href="" ng-click="predicate = 'likes'; reverse=!reverse">Likes</a></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat="picture in dummy_pictures | filter:searchText:comparator=false | orderBy:predicate:reverse" ng-class="picture.fotograf">
-					<td>{{picture.text}}</td>
-					<td><a href="{{picture.fotograf_link}}">{{picture.fotograf}}</a></td>
-					<td>{{picture.schlagworte}}</td>
-					<td><a href="{{picture.link}}">Bild anzeigen</a></td>
-					<td>{{picture.likes}}</td>
-				</tr>
-			</tbody>
+		<nav>
+			<form method="GET" action="resultpage.html">
+			  <div class="col-lg-6">
+			    <div class="input-group">
+			      <input type="text" class="form-control" placeholder="Suchbegriff hier eingeben...">
+			      <span class="input-group-btn">
+			        <button class="btn btn-default" type="submit">Suchen</button>
+			      </span>
+			    </div><!-- /input-group -->
+			  </div><!-- /.col-lg-6 -->
+			<form>
+		</nav>
+	
+	
+	<nav class="search_mode">
+		<a>Einfache Suche</a>
+		<a>Erweiterte Suche</a>
+	</nav>
 
+	<div class="advanced_search">
+		<nav class="wording">
+			<a>Alle diese Wörter</a>
+			<a>Genaue Formulierung</a>
+			<a>Eines dieser Wörter</a>
+		
+		<label for="CCL"><input type="checkbox" value="">Nur in Inhalten mit einer Creative Commons-Lizenz suchen</label>
+
+		<table>
+			<thead>
+				<th></th>
+				<th><label for="after">nach</label></th>
+				<th><label for="before">vor</label></th>
+			</thead>
+
+			<tbody>
+				<td>Aufgenommen</td>
+				<td><input name="after" type="datepicker"></td>
+				<td><input name="before" type="datepicker"></td>
+			</tbody>
 		</table>
+
+		</nav>
+	</div>
 	</div>
 
 	<footer><script> document.write('<p>&copy;' + new Date().getFullYear() + '</p>'); </script></footer>
