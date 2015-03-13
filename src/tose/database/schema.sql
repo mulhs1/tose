@@ -52,6 +52,7 @@ CREATE SEQUENCE SEQ_META_TAG;
 -- -----------------------------------------------------
 -- INSERT STATEMENTS
 -- -----------------------------------------------------
+set client_encoding to 'latin1'
 
 INSERT INTO t_metadata (id,photo_url,photo_title,photo_description,photo_author_link,photo_author_name,photo_camera,photo_iso,photo_gps,photo_flash,photo_focal_length,photo_aperture,photo_exposure,photo_date,photo_likes) 
 VALUES (1,'http://www.peterhofstetter.com/fotoshooting-galerien/images/produktefotos-033.jpg','Halskette','Produktbild einer Halskette mit superschönem Glanzeffekt.','http://www.peterhofstetter.com/','Peter Hofstetter','Nikon','800','46.9479744;7.447791000000052','1','50','1.8','0.5',current_date,'15');
@@ -66,5 +67,12 @@ VALUES (2,'http://evekohler.ch/wp-content/uploads/2014/01/eve-kohler_kunst_aicha
 INSERT INTO t_meta_tag (id, ln_photo_id, photo_tag) VALUES (4,2,'Hund');
 INSERT INTO t_meta_tag (id, ln_photo_id, photo_tag) VALUES (5,2,'Lustig');
 INSERT INTO t_meta_tag (id, ln_photo_id, photo_tag) VALUES (6,2,'Photoshop');
+
+INSERT INTO t_metadata (id,photo_url,photo_title,photo_description,photo_author_link,photo_author_name,photo_camera,photo_iso,photo_gps,photo_flash,photo_focal_length,photo_aperture,photo_exposure,photo_date,photo_likes) 
+VALUES (3,'http://www.residenztheater.de/sites/default/files/styles/344x229/public/Petra%20von%20Kant%2014_Michel.jpg','Lustiger Hund','Bild zeigt zwei Frauen, wobei die eine der anderen zu Füssen kniet.','http://www.residenztheater.de','Residenztheater','Canon 5D','800','46.9479744;7.447791000000052','1','50','1.8','0.5',current_date,'15');
+
+INSERT INTO t_meta_tag (id, ln_photo_id, photo_tag) VALUES (7,3,'Frauen');
+INSERT INTO t_meta_tag (id, ln_photo_id, photo_tag) VALUES (8,3,'Theater');
+INSERT INTO t_meta_tag (id, ln_photo_id, photo_tag) VALUES (9,3,'Schuhe');
 
 
