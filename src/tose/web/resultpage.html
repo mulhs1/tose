@@ -59,6 +59,28 @@
 			</tbody>
 
 		</table>-->
+		
+		<table class="table">
+			<thead>
+				<tr>
+					<th><a href="" ng-click="predicate = 'text'; reverse=!reverse">Text</a></th>
+					<th><a href="" ng-click="predicate = 'fotograf'; reverse=!reverse">Fotograf</a></th>
+					<th><a href="" ng-click="predicate = 'schlagworte'; reverse=!reverse">Schlagworte</a></th>
+					<th><a href="" ng-click="predicate = 'link'; reverse=!reverse">Link</a></th>
+					<th><a href="" ng-click="predicate = 'likes'; reverse=!reverse">Likes</a></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="picture in dummy_pictures | filter:searchText:comparator=false | orderBy:predicate:reverse" ng-class="picture.fotograf">
+					<td>{{picture.text}}</td>
+					<td><a href="{{picture.fotograf_link}}">{{picture.fotograf}}</a></td>
+					<td>{{picture.schlagworte}}</td>
+					<td><a href="{{picture.link}}">Bild anzeigen</a></td>
+					<td>{{picture.likes}}</td>
+				</tr>
+			</tbody>
+
+		</table>
 
 		<nav>
 		  <ul class="pagination">

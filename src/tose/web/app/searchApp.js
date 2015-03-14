@@ -6,7 +6,7 @@ angular.module('flickrSearch', [])
   });
   
   function WebServiceCall($scope, $http) {
-    $http.get('http://rest-service.guides.spring.io/greeting').
+    $http.get('https://tose.mimacom.com/ProFosService/service/searchMetadataService?query=test').
         success(function(data) {
             $scope.imgdata = data;
         });
