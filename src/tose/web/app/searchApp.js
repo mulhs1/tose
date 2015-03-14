@@ -5,11 +5,3 @@ angular.module('flickrSearch', [])
       console.log(imgdata);
     });
   });
-  
-  function WebServiceCall($scope, $http) {
-    $http.get('https://tose.mimacom.com/ProFosService/service/searchMetadataService?query=test').
-        success(function(data) {
-            $scope.imgdata = data;
-        });
-}
-
