@@ -1,5 +1,5 @@
-<!--<html lang="en" ng-app="flickrSearch">-->
-<html lang="en" ng-app>
+<html lang="en" ng-app="flickrSearch">
+<!--<html lang="en" ng-app>-->
 <head>
 	<meta charset="UTF-8">
 	<title>Flickr Search</title>
@@ -13,8 +13,8 @@
 	<script type="text/javascript" src="app/searchApp.js"></script>
 </head>
 
-<!--<body ng-controller="stageOneCtrl">-->
-<body ng-controller="WebServiceCall">
+<body ng-controller="stageOneCtrl">
+<!--<body ng-controller="WebServiceCall">-->
 	<div id="container">
 		<header>
 		
@@ -71,7 +71,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="picture in imgdata | filter:searchText:comparator=false | orderBy:predicate:reverse" ng-class="picture.fotograf">
+				<tr ng-repeat="picture in imgdata | filter:searchText:comparator=false | orderBy:predicate:reverse" ng-class="picture.photo_author_name">
 					<td>{{picture.photo_title}}</td>
 					<td><a href="{{picture.photo_author_link}}">{{picture.photo_author_name}}</a></td>
 					<td>{{picture.photo_description}}</td>
