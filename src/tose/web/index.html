@@ -1,14 +1,15 @@
 <html lang="en" ng-app="flickrSearch">
 <head>
 	<meta charset="UTF-8">
-	<title>Flickr Search</title>
-	<meta name="description" content="Beschreibug einfügen">
+	<title>ProFos</title>
+	<meta name="description" content="ProFos Suche">
 	<meta name="keywords" content="Keywords einfügen">
 	<!-- Verlinkung CSS -->
+    <link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="js/vendor/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="js/vendor/bootstrap/dist/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="css/main.css">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script type="text/javascript" src="js/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/vendor/angular/angular.min.js"></script>
 	<script type="text/javascript" src="app/searchApp.js"></script>
 </head>
@@ -16,59 +17,73 @@
 <body ng-controller="stageOneCtrl">
 	<div class="container">
 		<header>
-		
 		<div class="page-header">
 		  <h1>ProFos</h1>
 		</div>
-
-
 		</header>
-		<nav>
-			<form method="GET" action="resultpage.html">
-			  <div class="col-lg-6">
-			    <div class="input-group">
-			      <input type="text" class="form-control" placeholder="Suchbegriff hier eingeben...">
-			      <span class="input-group-btn">
-			        <button class="btn btn-default" type="submit">Suchen</button>
-			      </span>
-			    </div><!-- /input-group -->
-			  </div><!-- /.col-lg-6 -->
-			<form>
-		</nav>
-	
-	
-	<nav class="search_mode">
-		<a>Einfache Suche</a>
-		<a>Erweiterte Suche</a>
-	</nav>
+      </div>    
 
-	<div class="advanced_search">
-		<nav class="wording">
-			<a>Alle diese Wörter</a>
-			<a>Genaue Formulierung</a>
-			<a>Eines dieser Wörter</a>
-		
-		<label for="CCL"><input type="checkbox" value="">Nur in Inhalten mit einer Creative Commons-Lizenz suchen</label>
-
-		<table>
-			<thead>
-				<th></th>
-				<th><label for="after">nach</label></th>
-				<th><label for="before">vor</label></th>
-			</thead>
-
-			<tbody>
-				<td>Aufgenommen</td>
-				<td><input name="after" type="datepicker"></td>
-				<td><input name="before" type="datepicker"></td>
-			</tbody>
-		</table>
-
-		</nav>
+	<div class="container search-form">
+   		<form method="GET" action="resultpage.html">
+        	<div class="form-group">
+				<label class="sr-only" for="inputSearch">Suchbegriff</label>
+				<input type="text" id="inputSearch" class="form-control" placeholder="Suchbegriff hier eingeben...">
+			</div>
+			<button class="btn btn-primary" type="submit">Suchen</button>
+		<form>
 	</div>
+        
+	<div class="container">
+    	<ul id="search_mode" class="nav nav-pills center-block">
+			<li role="presentation" class="active"><a href="#simple_search" data-toggle="tab">Einfache Suche</a></li>
+   			<li role="presentation" ><a href="#advanced_search" data-toggle="tab">Erweiterte Suche</a></li>
+		</ul>
 	</div>
+    
+    <div id="search_mode_content" class="tab-content container">
+		<div class="tab-pane fade in active" id="simple_search">
+      		<!-- <p>Einfache Suche</p> -->
+   		</div>
+		<div class="tab-pane fade" id="advanced_search">
+        	<div class="form-group">
+        	<div class="btn-group" data-toggle="buttons" role="group">
+ 				<label class="btn btn-primary active">
+    				<input type="radio" name="options" id="search-all_words" autocomplete="off" checked>Alle diese Wörter
+  				</label>
+  				<label class="btn btn-primary">
+    				<input type="radio" name="options" id="search-exactly" autocomplete="off">Genaue Formulierung
+  				</label>
+  				<label class="btn btn-primary">
+    				<input type="radio" name="options" id="search-one_word" autocomplete="off">Eines dieser Wörter
+  				</label>
+			</div>
+            </div>
+            <div class="checkbox form-group">
+  				<label>
+    				<input type="checkbox" value="">Nur in Inhalten mit einer Creative Commons-Lizenz suchen
+                </label>
+			</div>
+			<div class="row">
+        		<label class="control-label col-xs-2">Aufgenommen</label>
+        		<div class="col-xs-5">
+                	<label class="sr-only" for="inputSearch">Aufgenommen von</label>
+            		<input type="text" class="form-control" id="date-start" placeholder="Von">
+        		</div>
+                <div class="col-xs-5">
+                	<label class="sr-only" for="inputSearch">Aufgenommen bis</label>
+            		<input type="text" class="form-control" id="ate-end" placeholder="Bis">
+        		</div>
+    		</div>
+            
+		</div>
+	</div>
+
 
 	<footer><script> document.write('<p>&copy;' + new Date().getFullYear() + '</p>'); </script></footer>
-
+    <script type="text/javascript" src="js/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+	// Inline JavaScript
+  </script>
+</body>
 </div>
 </html>
