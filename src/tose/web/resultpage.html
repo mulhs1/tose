@@ -12,8 +12,7 @@
 	<script type="text/javascript" src="js/vendor/angular/angular.min.js"></script>
 	<script type="text/javascript" src="app/searchApp.js"></script>
 </head>
-
-<body ng-controller="stageOneCtrl">
+<script type="text/javascript">document.write("<body ng-controller=\"stageOneCtrl\" ng-init=\"init('"+getURLParameter('inputSearch')+"')\">")</script>
 	<div id="container">
 		<header>
 		
