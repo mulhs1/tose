@@ -1,52 +1,89 @@
 <html lang="en" ng-app="flickrSearch">
 <head>
 	<meta charset="UTF-8">
-	<title>Flickr Search</title>
-	<meta name="description" content="Beschreibug einfügen">
+	<title>ProFos</title>
+	<meta name="description" content="ProFos Suche">
 	<meta name="keywords" content="Keywords einfügen">
 	<!-- Verlinkung CSS -->
+    <link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="js/vendor/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="js/vendor/bootstrap/dist/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="css/main.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script type="text/javascript" src="js/vendor/angular/angular.min.js"></script>
 	<script type="text/javascript" src="app/searchApp.js"></script>
 </head>
 
 <body ng-controller="stageOneCtrl">
-	<div id="container">
+	<div class="container">
 		<header>
-
-				<h1>Bildsuche</h1>
-
+		<div class="page-header">
+		  <h1>ProFos</h1>
+		</div>
 		</header>
-		<article>
-			<label for="your_search">Suche: <input type="text" name="your_search" size="60" value="" ng-model="searchText"></label>
-		</article>
+      </div>    
+
+	<div class="container search-form">
+   		<form method="GET" action="resultpage.html">
+        	<div class="form-group">
+				<label class="sr-only" for="inputSearch">Suchbegriff</label>
+				<input type="text" id="inputSearch" name="inputSearch" class="form-control" placeholder="Suchbegriff hier eingeben...">
+			</div>
+			<button class="btn btn-primary" type="submit">Suchen</button>
+		
 	</div>
-	<div id="container">
-		<h2>Search Results</h2>
-		<table>
-			<thead>
-				<tr>
-					<th><a href="" ng-click="predicate = 'text'; reverse=!reverse">Text</a></th>
-					<th><a href="" ng-click="predicate = 'fotograf'; reverse=!reverse">Fotograf</a></th>
-					<th><a href="" ng-click="predicate = 'schlagworte'; reverse=!reverse">Schlagworte</a></th>
-					<th><a href="" ng-click="predicate = 'link'; reverse=!reverse">Link</a></th>
-					<th><a href="" ng-click="predicate = 'likes'; reverse=!reverse">Likes</a></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat="picture in dummy_pictures | filter:searchText:comparator=false | orderBy:predicate:reverse" ng-class="picture.fotograf">
-					<td>{{picture.text}}</td>
-					<td><a href="{{picture.fotograf_link}}">{{picture.fotograf}}</a></td>
-					<td>{{picture.schlagworte}}</td>
-					<td><a href="{{picture.link}}">Bild anzeigen</a></td>
-					<td>{{picture.likes}}</td>
-				</tr>
-			</tbody>
-
-		</table>
+        
+	<div class="container">
+    	<ul id="search_mode" class="nav nav-pills center-block">
+			<li role="presentation" class="active"><a href="#simple_search" data-toggle="tab">Einfache Suche</a></li>
+   			<li role="presentation" ><a href="#advanced_search" data-toggle="tab">Erweiterte Suche</a></li>
+		</ul>
 	</div>
+    
+    <div id="search_mode_content" class="tab-content container">
+		<div class="tab-pane fade in active" id="simple_search">
+      		<!-- <p>Einfache Suche</p> -->
+   	</div>
+		<div class="tab-pane fade" id="advanced_search">
+        	<div class="form-group">
+        	<div class="btn-group" data-toggle="buttons" role="group">
+ 				<label class="btn btn-primary active">
+    				<input type="radio" name="options" id="search-all_words" autocomplete="off" checked>Alle diese Wörter
+  				</label>
+  				<label class="btn btn-primary">
+    				<input type="radio" name="options" id="search-exactly" autocomplete="off">Genaue Formulierung
+  				</label>
+  				<label class="btn btn-primary">
+    				<input type="radio" name="options" id="search-one_word" autocomplete="off">Eines dieser Wörter
+  				</label>
+			</div>
+            </div>
+            <div class="checkbox form-group">
+  				<label>
+    				<input type="checkbox" value="">Nur in Inhalten mit einer Creative Commons-Lizenz suchen
+                </label>
+			</div>
+			<div class="row">
+        		<label class="control-label col-xs-2">Aufgenommen</label>
+        		<div class="col-xs-5">
+                	<label class="sr-only" for="inputSearch">Aufgenommen von</label>
+            		<input type="text" class="form-control" id="date-start" placeholder="Von">
+        		</div>
+                <div class="col-xs-5">
+                	<label class="sr-only" for="inputSearch">Aufgenommen bis</label>
+            		<input type="text" class="form-control" id="ate-end" placeholder="Bis">
+        		</div>
+    		</div>
+            
+		</div>
+	</div><form>
 
-	<footer><script> document.write('<p>&copy;' + getFullYear() + '</p>'); </script></footer>
 
+	<footer><script> document.write('<p>&copy;' + new Date().getFullYear() + ' Berner Fachhochschule, BSc Wirtschaftsinformatik, Klasse 6o</p>'); </script></footer>
+    <script type="text/javascript" src="js/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+	// Inline JavaScript
+  </script>
+</body>
 </div>
 </html>

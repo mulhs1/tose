@@ -1,0 +1,86 @@
+<html lang="en" ng-app="flickrSearch">
+<head>
+	<meta charset="UTF-8">
+	<title>ProFos</title>
+	<meta name="description" content="Beschreibug einfügen">
+	<meta name="keywords" content="Keywords einfügen">
+	<!-- Verlinkung CSS -->
+	<link rel="stylesheet" href="js/vendor/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/main.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script type="text/javascript" src="js/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/vendor/angular/angular.min.js"></script>
+	<script type="text/javascript" src="app/searchApp.js"></script>
+</head>
+<script type="text/javascript">document.write("<body ng-controller=\"stageOneCtrl\" ng-init=\"init('"+getURLParameter('inputSearch')+"')\">")</script>
+	<div id="container">
+		<header>
+		
+		<div class="page-header">
+		  <h1>Bildsuche</h1>
+		</div>
+
+
+		</header>
+		<nav>
+			<div class="col-lg-6">
+			    <div class="col-lg-6">
+			    <div class="input-group">
+			      <input type="text" class="form-control" placeholder="Suchbegriff hier eingeben...">
+			      <span class="input-group-btn">
+			        <button class="btn btn-default" type="submit">Suchen</button>
+			      </span>
+			    </div><!-- /input-group -->
+			  </div><!-- /.col-lg-6 -->
+		</nav>
+	</div>
+	<div id="container">
+		<h2>Search Results</h2>
+		
+		<table class="table">
+			<thead>
+				<tr>
+					<th><a href="" ng-click="predicate = 'photo_title'; reverse=!reverse">Titel</a></th>
+					<th><a href="" ng-click="predicate = 'photo_author_name'; reverse=!reverse">Fotograf</a></th>
+					<th><a href="" ng-click="predicate = 'photo_description'; reverse=!reverse">Schlagworte</a></th>
+					<th><a href="" ng-click="predicate = 'photo_url'; reverse=!reverse">Link</a></th>
+					<th><a href="" ng-click="predicate = 'photo_likes'; reverse=!reverse">Likes</a></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="picture in imgdata | filter:searchText:comparator=false | orderBy:predicate:reverse" ng-class="picture.photo_author_name">
+					<td>{{picture.photo_title}}</td>
+					<td><a href="{{picture.photo_author_link}}">{{picture.photo_author_name}}</a></td>
+					<td>{{picture.photo_description}}</td>
+					<td><a href="{{picture.photo_url}}">Bild anzeigen</a></td>
+					<td>{{picture.photo_likes}}</td>
+				</tr>
+			</tbody>
+
+		</table>
+
+		<nav>
+		  <ul class="pagination">
+		    <li>
+		      <a href="#" aria-label="Previous">
+		        <span aria-hidden="true">&laquo;</span>
+		      </a>
+		    </li>
+		    <li><a href="#">1</a></li>
+		    <li><a href="#">2</a></li>
+		    <li><a href="#">3</a></li>
+		    <li><a href="#">4</a></li>
+		    <li><a href="#">5</a></li>
+		    <li>
+		      <a href="#" aria-label="Next">
+		        <span aria-hidden="true">&raquo;</span>
+		      </a>
+		    </li>
+		  </ul>
+		</nav>
+	</div>
+
+	<footer><script> document.write('<p>&copy;' + new Date().getFullYear() + '</p>'); </script></footer>
+
+</div>
+</html>
