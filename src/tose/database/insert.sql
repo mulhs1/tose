@@ -16,7 +16,7 @@ VALUES
 '0.5',
 current_date,
 '15');
-
+ 
 
 INSERT INTO profos.t_metadata 
 (id,photo_url,photo_title,photo_description,photo_author_link,photo_author_name,photo_camera,photo_iso,photo_gps,photo_flash,photo_focal_length,photo_aperture,photo_exposure,photo_date,photo_likes)
